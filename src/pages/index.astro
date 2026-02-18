@@ -1,13 +1,28 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header>
+      <h1>欢迎来到 ranyu 的网站</h1>
+      <nav>
+        <a href="/">首页</a>
+        <a href="/about">关于</a>
+      </nav>
+    </header>
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
+    <main>
+      <p>这是一个纯静态的个人主页，用 Astro + Cloudflare Pages 部署。</p>
+      <img src="/images/me.jpg" alt="我的照片" width="300" />
+    </main>
 
-<Layout>
-	<h1 class="text-5xl font-bold">我爱李思捷</h1>
-</Layout>
-
+    <footer>
+      <small>&copy; 2026 ranyu</small>
+    </footer>
+  </body>
+</html>
 
