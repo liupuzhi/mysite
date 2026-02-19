@@ -11,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
       color: #fff;
@@ -19,7 +18,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     /* 背景图片 */
     .bg {
       position: fixed;
@@ -27,15 +25,13 @@
       background: url('https://i1.hdslb.com/bfs/new_dyn/231d01e18b55ad128caa42fbded000a716193877.jpg@1100w.avif') center/cover no-repeat;
       z-index: -2;
     }
-
     .bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0); /* 深色遮罩，让文字更清晰 */
+      background: rgba(0, 0, 0, 0.45); /* 调整为 0.45，更容易看到背景图片细节 */
       z-index: -1;
     }
-
     /* 主要内容居中 */
     .container {
       min-height: 100vh;
@@ -47,7 +43,6 @@
       padding: 2rem;
       position: relative;
     }
-
     .avatar {
       width: 180px;
       height: 180px;
@@ -57,50 +52,43 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
-
     h1 {
       font-size: 3.5rem;
       margin-bottom: 0.8rem;
       text-shadow: 0 4px 10px rgba(0,0,0,0.7);
     }
-
     .subtitle {
       font-size: 1.4rem;
       opacity: 0.9;
       margin-bottom: 2rem;
       max-width: 600px;
     }
-
     .bio {
       font-size: 1.15rem;
       line-height: 1.7;
       max-width: 700px;
       margin-bottom: 2.5rem;
-      background: rgba(0, 0, 0, 0);
+      background: rgba(0, 0, 0, 0.4); /* 加一点背景，避免文字糊在图片上 */
       padding: 1.5rem;
       border-radius: 12px;
       backdrop-filter: blur(6px);
     }
-
     .social-links {
       display: flex;
       gap: 1.5rem;
       margin-bottom: 2.5rem;
     }
-
     .social-links a {
       color: white;
       font-size: 1.8rem;
       transition: all 0.3s;
       opacity: 0.85;
     }
-
     .social-links a:hover {
       transform: translateY(-6px);
       opacity: 1;
       color: #00d4ff;
     }
-
     /* 音乐控制按钮 */
     .music-control {
       position: fixed;
@@ -118,13 +106,14 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
       transition: all 0.3s;
       z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
     .music-control:hover {
-      background: rgb(255, 255, 255)
+      background: rgba(255, 255, 255, 0.3); /* 半透明白色，更好看 */
       transform: scale(1.1);
     }
-
     /* 响应式 */
     @media (max-width: 768px) {
       h1 { font-size: 2.8rem; }
@@ -138,8 +127,11 @@
   <div class="bg"></div>
 
   <div class="container">
-    <img src="https://i1.hdslb.com/bfs/new_dyn/1db74c691ec5bc376c5c75fbb218bd3d16193877.png@300w.avif" alt="" class="avatar">
-
+    <img 
+      src="https://i1.hdslb.com/bfs/new_dyn/1db74c691ec5bc376c5c75fbb218bd3d16193877.png@300w.avif" 
+      alt="" 
+      class="avatar"
+    >
     <h1>ran yu</h1>
     <div class="subtitle">前端开发者 | 音乐爱好者 | 生活记录者</div>
 
@@ -159,7 +151,6 @@
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop>
-      <!-- 替换成你自己的音乐链接，支持 mp3 / ogg 等 -->
       <source src="https://raw.githubusercontent.com/liupuzhi/mysite/main/assets/surprising_media-romantic-acoustic-guitar-1-433555.mp3" type="audio/mpeg">
       您的浏览器不支持 audio 元素。
     </audio>
@@ -174,21 +165,19 @@
     const btn = document.getElementById('musicBtn');
     let isPlaying = false;
 
-    // 浏览器策略：自动播放通常需要用户交互后才能生效
     btn.addEventListener('click', () => {
       if (isPlaying) {
         music.pause();
         btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
       } else {
-        music.play().catch(e => console.log("自动播放被阻止，需要用户交互"));
+        music.play().catch(e => {
+          console.log("自动播放被阻止，需要用户交互");
+          alert("点击按钮后才能播放音乐哦～");
+        });
         btn.innerHTML = '<i class="fas fa-volume-up"></i>';
       }
       isPlaying = !isPlaying;
     });
-
-    // 可选：页面加载后尝试播放（很多浏览器会阻塞）
-    // music.volume = 0.2;
-    // music.play().catch(() => {});
   </script>
 </body>
 </html>
