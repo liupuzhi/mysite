@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>我的个人主页 - HJ</title>
+  <title>我的个人主页 - ranyu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     * {
@@ -18,21 +18,20 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-    /* 背景图片 */
+    /* 背景图片 - 换成稳定明亮的 Unsplash 图 */
     .bg {
       position: fixed;
       inset: 0;
-      background: url('https://i1.hdslb.com/bfs/new_dyn/231d01e18b55ad128caa42fbded000a716193877.jpg@1100w.avif') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
       z-index: -2;
     }
     .bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.45); /* 调整为 0.45，更容易看到背景图片细节 */
+      background: rgba(0, 0, 0, 0.5);  /* 0.5 透明度，能看到图片细节 */
       z-index: -1;
     }
-    /* 主要内容居中 */
     .container {
       min-height: 100vh;
       display: flex;
@@ -68,7 +67,7 @@
       line-height: 1.7;
       max-width: 700px;
       margin-bottom: 2.5rem;
-      background: rgba(0, 0, 0, 0.4); /* 加一点背景，避免文字糊在图片上 */
+      background: rgba(0, 0, 0, 0.5);  /* 半透明背景，文字清晰 */
       padding: 1.5rem;
       border-radius: 12px;
       backdrop-filter: blur(6px);
@@ -89,7 +88,6 @@
       opacity: 1;
       color: #00d4ff;
     }
-    /* 音乐控制按钮 */
     .music-control {
       position: fixed;
       bottom: 20px;
@@ -111,10 +109,9 @@
       justify-content: center;
     }
     .music-control:hover {
-      background: rgba(255, 255, 255, 0.3); /* 半透明白色，更好看 */
+      background: rgba(255, 255, 255, 0.3);
       transform: scale(1.1);
     }
-    /* 响应式 */
     @media (max-width: 768px) {
       h1 { font-size: 2.8rem; }
       .subtitle { font-size: 1.2rem; }
@@ -127,9 +124,10 @@
   <div class="bg"></div>
 
   <div class="container">
+    <!-- 新头像：年轻亚洲男性，微笑，专业亲切 -->
     <img 
-      src="https://i1.hdslb.com/bfs/new_dyn/1db74c691ec5bc376c5c75fbb218bd3d16193877.png@300w.avif" 
-      alt="" 
+      src="https://www.shutterstock.com/shutterstock/photos/2597221117/display_1500/stock-photo-young-asian-man-wearing-glasses-smiling-slightly-portrait-on-white-background-2597221117.jpg" 
+      alt="我的头像" 
       class="avatar"
     >
     <h1>ran yu</h1>
